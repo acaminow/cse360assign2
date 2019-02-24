@@ -1,15 +1,22 @@
 package cse360assign2;
 
-public class Calculator {
-
+public class Calculator 
+{
+	// int to track total
 	private int total;
+	
+	// string to record history of changes
+	private String history;
 	
     /**
      * The constructor for the Calculator class will instantiate the "total"
      * variable to 0
+     * Constructor will also instantiate the "history" string to "O "
      */
-	public Calculator() {
+	public Calculator() 
+	{
 		total = 0;  // not needed - included for clarity
+		history = "0 ";
 	}
 	
     /**
@@ -27,39 +34,57 @@ public class Calculator {
      * The add method will not return any value.
      * This method will add the integer value of the parameter passed to the 
      * "total" variable, updating the total with this new amount.
+     * The add method will also update the history string to concatenate its
+     * current contents with "+ value " but the numerical integer for "value" 
+     * will be substituted.
      * 
      * @param value integer value to add to the total variable
      */
 	public void add (int value) 
 	{
 		int numToAdd = value;
-		total = total + numToAdd;
+		total = total + numToAdd; // add parameter to total
+		
+		// update history to show addition of parameter value to total
+		history = history + "+ " + numToAdd + " ";
 	}
 	
     /**
      * The subtract method will not return any value.
      * This method will subtract the integer value of the parameter passed 
      * from the "total" variable, updating the total with this new amount.
+     * The subtract method will also update the history string to concatenate 
+     * its current contents with "- value " but the numerical integer for 
+     * value will be substituted.
      * 
      * @param value integer value to subtract from the total variable
      */
 	public void subtract (int value) 
 	{
 		int numToSubtract = value;
-		total = total - numToSubtract;
+		total = total - numToSubtract; // subtract parameter from total
+		
+		// update history to show subtraction of parameter value from total
+		history = history + "- " + numToSubtract + " ";
 	}
 	
     /**
      * The multiply method will not return any value.
      * This method will multiply the integer value of the parameter passed
      * with the "total" variable, updating the total with this new amount.
+     * The multiply method will also update the history string to concatenate 
+     * its current contents with "* value " but the numerical integer for 
+     * value will be substituted.
      * 
      * @param value integer value to multiply with the total variable
      */
 	public void multiply (int value) 
 	{
 		int numToMultiply = value;
-		total = total * numToMultiply;
+		total = total * numToMultiply; // multiply total with parameter
+		
+		// update history to show multiplication of parameter value with total
+		history = history + "* " + numToMultiply + " ";
 	}
 	
     /**
@@ -70,6 +95,9 @@ public class Calculator {
      * If the parameter is zero, the total will be set to zero.
      * This message will not print an error message or perform exception 
      * handling.
+     * The divide method will also update the history string to concatenate 
+     * its current contents with "/ value " but the numerical integer for 
+     * value will be substituted.
      * 
      * @param value integer value to divide the total variable by
      */
@@ -82,12 +110,18 @@ public class Calculator {
 		{
 			// if so, set total to 0
 			total = 0;
+			
+			// update history to show division of total by 0
+			history = history + "/ 0 ";
 		}
 		
 		// else perform int division
 		else
 		{
-			total = (int) total / numToDivide;
+			total = total / numToDivide; // int division
+			
+			// update history to show division of total by parameter value
+			history = history + "/ " + numToDivide + " ";
 		}
 	}
 	
@@ -95,6 +129,8 @@ public class Calculator {
      * The getHistory method will not take any parameters.
      * This method will return a string containing a history of the 
      * modifications made to the "total" variable since its instantiation.
+     * The string "history" will be returned as it has been modified during 
+     * program execution to track changes.
      * The String will use symbols +, -, *, / to represent addition, 
      * subtraction, multiplication, and division.
      * Operators and operands will be separated by spaces in the string.
@@ -105,6 +141,6 @@ public class Calculator {
      */
 	public String getHistory () 
 	{
-		return "";
+		return history;
 	}
 }
