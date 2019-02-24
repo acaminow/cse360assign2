@@ -18,8 +18,9 @@ public class Calculator {
      * 
      * @return the integer value stored in the total variable
      */
-	public int getTotal () {
-		return 0;
+	public int getTotal () 
+	{
+		return total;
 	}
 	
     /**
@@ -29,8 +30,10 @@ public class Calculator {
      * 
      * @param value integer value to add to the total variable
      */
-	public void add (int value) {
-		
+	public void add (int value) 
+	{
+		int numToAdd = value;
+		total = total + numToAdd;
 	}
 	
     /**
@@ -40,8 +43,10 @@ public class Calculator {
      * 
      * @param value integer value to subtract from the total variable
      */
-	public void subtract (int value) {
-		
+	public void subtract (int value) 
+	{
+		int numToSubtract = value;
+		total = total - numToSubtract;
 	}
 	
     /**
@@ -51,8 +56,10 @@ public class Calculator {
      * 
      * @param value integer value to multiply with the total variable
      */
-	public void multiply (int value) {
-		
+	public void multiply (int value) 
+	{
+		int numToMultiply = value;
+		total = total * numToMultiply;
 	}
 	
     /**
@@ -66,8 +73,22 @@ public class Calculator {
      * 
      * @param value integer value to divide the total variable by
      */
-	public void divide (int value) {
+	public void divide (int value) 
+	{
+		int numToDivide = value;
 		
+		// check if parameter == 0
+		if (numToDivide == 0)
+		{
+			// if so, set total to 0
+			total = 0;
+		}
+		
+		// else perform int division
+		else
+		{
+			total = (int) total / numToDivide;
+		}
 	}
 	
     /**
@@ -82,7 +103,8 @@ public class Calculator {
      * 
      * @return String containing the history of changes made to total variable
      */
-	public String getHistory () {
+	public String getHistory () 
+	{
 		return "";
 	}
 }
